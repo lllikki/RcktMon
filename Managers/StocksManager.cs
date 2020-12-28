@@ -312,7 +312,7 @@ namespace TradeApp.Data
                             Interlocked.Increment(ref _refreshPendingCount);
                         }
 
-                        var change = stock.GetLast10MinChange(TenMinChangeTrigger);
+                        var change = stock.GetLast5MinChange(TenMinChangeTrigger);
                         if (Math.Abs(change.change) > TenMinChangeTrigger && stock.DayChange > TenMinChangeTrigger && (stock.LastAboveThreshholdCandleTime == null
                             || stock.LastAboveThreshholdCandleTime < candle.Time.AddMinutes(-change.minutes)))
                         {
